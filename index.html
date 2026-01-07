@@ -10,14 +10,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        /* --- DYNAMIC THEME ENGINE --- */
+        /* --- محرك الألوان المتغير --- */
         :root {
             --gold: #c5a059;
             --gold-dark: #a38446;
             --transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Dark Theme (Default) */
+        /* النمط الداكن (الأساسي) */
         body.dark-theme {
             --bg-primary: #000000;
             --bg-secondary: #0a0a0a;
@@ -29,7 +29,7 @@
             --hero-overlay: rgba(0, 0, 0, 0.7);
         }
 
-        /* Light Theme */
+        /* النمط الفاتح */
         body.light-theme {
             --bg-primary: #ffffff;
             --bg-secondary: #f4f7f6;
@@ -46,11 +46,66 @@
             color: var(--text-main);
             transition: var(--transition);
             font-family: 'Cairo', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
         }
 
         body.en { font-family: 'Montserrat', sans-serif; }
 
-        /* --- UI COMPONENTS --- */
+        /* --- تصميم الـ LOADER الاحترافي --- */
+        #loader-wrapper {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        .loader-content { 
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 150px;
+        }
+
+        .spinner {
+            position: absolute;
+            width: 130px; 
+            height: 130px;
+            border: 4px solid rgba(197, 160, 89, 0.1);
+            border-top: 4px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-logo { 
+            width: 80px; 
+            height: auto;
+            z-index: 10;
+            filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.4));
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .loader-text {
+            margin-top: 25px;
+            color: var(--gold);
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
+        
+        #loader-wrapper.fade-out { opacity: 0; pointer-events: none; }
+
+        /* --- مكونات واجهة المستخدم --- */
         .navbar {
             background: var(--nav-bg);
             backdrop-filter: blur(15px);
@@ -67,7 +122,7 @@
         }
 
         .hero {
-            height: 90vh;
+            height: 95vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -85,6 +140,9 @@
             border-radius: 20px;
             overflow: hidden;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .tool-card:hover {
@@ -102,18 +160,25 @@
             transition: 0.3s;
             display: inline-block;
         }
-
         .btn-gold:hover { transform: scale(1.05); background: #fff; }
 
         .hidden { display: none !important; }
 
-        /* Background texture for white theme */
         body.light-theme {
             background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         }
     </style>
 </head>
 <body class="ar dark-theme">
+    
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <img src="logo.png" alt="Logo" class="loader-logo">
+        </div>
+        <p class="loader-text lang-ar">جاري تحميل الفزعة...</p>
+        <p class="loader-text lang-en hidden">Loading Al-Fazah...</p>
+    </div>
 
     <nav class="navbar">
         <div class="flex items-center gap-4">
@@ -123,89 +188,62 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button onclick="toggleTheme()" class="border-2 border-gold text-gold px-4 py-1 rounded-full text-xs font-bold hover:bg-gold hover:text-black transition">🌓 THEME</button>
-            <button onclick="toggleLang()" class="border-2 border-gold text-gold px-4 py-1 rounded-full text-xs font-bold hover:bg-gold hover:text-black transition">EN/AR</button>
+            <button onclick="toggleTheme()" class="border-2 border-gold text-gold px-4 py-1 rounded-full text-xs font-bold hover:bg-gold hover:text-black transition">🌓 النمط</button>
+            <button onclick="toggleLang()" class="border-2 border-gold text-gold px-4 py-1 rounded-full text-xs font-bold hover:bg-gold hover:text-black transition lang-switch-btn">English</button>
             <a href="https://wa.me/966541894161" class="btn-gold hidden md:block lang-ar">اطلب الآن</a>
-            <a href="https://wa.me/966541894161" class="btn-gold hidden md:block lang-en hidden">ORDER NOW</a>
         </div>
     </nav>
 
     <section class="hero px-6">
-        <div class="max-w-5xl">
+        <div class="max-w-5xl flex flex-col items-center">
             <h2 class="text-gold font-bold tracking-[0.3em] mb-4 uppercase text-sm">Riyadh Industrial Rentals</h2>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight text-center">
                 <span class="lang-ar">الفزعة للمعدات</span>
                 <span class="lang-en hidden uppercase">AL-FAZAH</span>
                 <br>
                 <span class="text-gold lang-ar">الصناعية</span>
                 <span class="text-gold lang-en hidden uppercase">EQUIPMENT</span>
             </h1>
-            <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-3xl mx-auto lang-ar">
+            <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-3xl lang-ar text-center">
                 نوفر لك أحدث الأدوات الإنشائية بأفضل الأسعار في الرياض. دقة، سرعة، وموثوقية في كل مشروع.
             </p>
-            <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-3xl mx-auto lang-en hidden">
-                Providing high-end construction tools at the best rates in Riyadh. Precision and speed for every project.
-            </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="#catalog" class="btn-gold text-lg">استكشف المعدات (Catalog)</a>
-                <a href="#faq" class="border-2 border-current px-12 py-4 rounded-lg font-bold">من نحن (About)</a>
+                <a href="#catalog" class="btn-gold text-lg lang-ar">استكشف المعدات</a>
+                <a href="#faq" class="border-2 border-gold px-12 py-4 rounded-lg font-bold lang-ar">الأسئلة الشائعة</a>
             </div>
         </div>
     </section>
 
-    <section id="catalog" class="max-w-7xl mx-auto px-6 py-32">
+    <section id="catalog" class="max-w-7xl mx-auto px-6 py-32 flex flex-col items-center">
         <div class="text-center mb-20">
             <h2 class="text-4xl md:text-5xl font-black mb-4 lang-ar text-gold">أكثر المعدات طلباً</h2>
-            <h2 class="text-4xl md:text-5xl font-black mb-4 lang-en hidden text-gold">Our Fleet</h2>
             <p class="opacity-60 lang-ar">معدات عالمية بصيانة دورية لضمان عملك دون انقطاع.</p>
         </div>
         
-        <div id="tool-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div id="tool-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
             </div>
     </section>
 
-    <section class="py-24 bg-[var(--bg-secondary)] px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div class="p-8">
-                <div class="text-5xl mb-4 text-gold font-black">01</div>
-                <h4 class="font-bold text-xl mb-2 lang-ar">اختر معدتك</h4>
-                <p class="opacity-60 text-sm">تصفح الكتالوج واختر الأنسب.</p>
-            </div>
-            <div class="p-8">
-                <div class="text-5xl mb-4 text-gold font-black">02</div>
-                <h4 class="font-bold text-xl mb-2 lang-ar">تواصل معنا</h4>
-                <p class="opacity-60 text-sm">عبر الواتساب لتأكيد الطلب.</p>
-            </div>
-            <div class="p-8">
-                <div class="text-5xl mb-4 text-gold font-black">03</div>
-                <h4 class="font-bold text-xl mb-2 lang-ar">استلم في الموقع</h4>
-                <p class="opacity-60 text-sm">توصيل فوري لباب موقعك.</p>
-            </div>
-            <div class="p-8">
-                <div class="text-5xl mb-4 text-gold font-black">04</div>
-                <h4 class="font-bold text-xl mb-2 lang-ar">أنهِ عملك</h4>
-                <p class="opacity-60 text-sm">وسنقوم باستلامها منك لاحقاً.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="max-w-4xl mx-auto px-6 py-32">
+    <section id="faq" class="max-w-4xl mx-auto px-6 py-32 w-full">
         <h3 class="text-4xl font-black text-gold text-center mb-16 lang-ar">الأسئلة الشائعة</h3>
         <div class="space-y-6">
-            <div class="p-8 border border-gold/20 rounded-2xl bg-[var(--bg-card)]">
+            <div class="p-8 border border-gold/20 rounded-2xl bg-[var(--bg-card)] text-center">
                 <h4 class="text-xl font-bold mb-3 lang-ar">ما هي شروط التأجير؟</h4>
-                <p class="opacity-60 lang-ar">صورة الهوية، مبلغ تأمين مسترد، وتوقيع العقد البسيط.</p>
+                <p class="opacity-60 lang-ar">يتطلب التأجير صورة من الهوية الوطنية أو الإقامة، وتوقيع عقد بسيط يضمن حقوق الطرفين.</p>
             </div>
-            <div class="p-8 border border-gold/20 rounded-2xl bg-[var(--bg-card)]">
+            <div class="p-8 border border-gold/20 rounded-2xl bg-[var(--bg-card)] text-center">
                 <h4 class="text-xl font-bold mb-3 lang-ar">هل تتوفر خدمة التوصيل؟</h4>
-                <p class="opacity-60 lang-ar">نعم، نوفر التوصيل لجميع أحياء الرياض برسوم رمزية.</p>
+                <p class="opacity-60 lang-ar">نعم، نوفر خدمة التوصيل والاستلام لجميع أحياء الرياض برسوم رمزية.</p>
+            </div>
+            <div class="p-8 border border-gold/20 rounded-2xl bg-[var(--bg-card)] text-center">
+                <h4 class="text-xl font-bold mb-3 lang-ar">ماذا لو تعطلت المعدة أثناء العمل؟</h4>
+                <p class="opacity-60 lang-ar">اتصل بنا فوراً وسنقوم باستبدال المعدة لك خلال أقل من ساعتين لضمان استمرار عملك.</p>
             </div>
         </div>
     </section>
 
     <footer class="py-12 border-t border-gold/20 text-center">
         <p class="opacity-50 lang-ar text-sm">© ٢٠٢٦ معدات الفزعة. جميع الحقوق محفوظة.</p>
-        <p class="opacity-50 lang-en hidden text-sm">© 2026 Al-Fazah Equipment. All Rights Reserved.</p>
     </footer>
 
     <a href="https://wa.me/966541894161" class="fixed bottom-10 left-10 bg-[#25d366] p-5 rounded-full shadow-2xl z-50 hover:scale-110 transition">
@@ -215,9 +253,9 @@
     <script>
         const tools = [
             { nameAr: 'دريل هيلتي تكسير', nameEn: 'Hilti Jackhammer', price: 85, img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400' },
-            { nameAr: 'مولد كهرباء كاتم ٥ كيلو', nameEn: '5KW Silent Generator', price: 150, img: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400' },
+            { nameAr: 'مولد كهرباء كاتم ٥ كيلو', nameEn: '5KW Silent Generator', price: 150, img: 'https://images.unsplash.com/photo-1590483734724-383b9f4a5ce2?q=80&w=400' },
             { nameAr: 'صاروخ جلخ بوش احترافي', nameEn: 'Pro Bosch Grinder', price: 45, img: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400' },
-            { nameAr: 'مطرقة هدم كهربائية كبيرة', nameEn: 'Heavy Demo Hammer', price: 120, img: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400' },
+            { nameAr: 'مطرقة هدم كهربائية كبيرة', nameEn: 'Heavy Demo Hammer', price: 120, img: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=400' },
             { nameAr: 'سلم ألمنيوم مزدوج ٤ متر', nameEn: '4M Double Ladder', price: 30, img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=400' },
             { nameAr: 'كمبروسر هواء ٥٠ لتر', nameEn: '50L Air Compressor', price: 70, img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=400' }
         ];
@@ -228,22 +266,28 @@
             grid.innerHTML = tools.map(item => `
                 <div class="tool-card">
                     <img src="${item.img}" class="h-64 w-full object-cover">
-                    <div class="p-8">
+                    <div class="p-8 w-full text-center">
                         <h3 class="text-2xl font-bold">${isAr ? item.nameAr : item.nameEn}</h3>
-                        <div class="text-3xl font-black text-gold mt-4">${item.price} <small class="text-sm opacity-50 font-normal">SAR / Day</small></div>
-                        <button class="w-full mt-8 bg-[var(--text-main)] text-[var(--bg-primary)] py-4 rounded-xl font-bold uppercase tracking-widest hover:opacity-90 transition">
+                        <div class="text-3xl font-black text-gold mt-4">${item.price} <small class="text-sm opacity-50 font-normal">SAR / اليوم</small></div>
+                        <a href="https://wa.me/966541894161" target="_blank" class="block text-center w-full mt-8 bg-[var(--text-main)] text-[var(--bg-primary)] py-4 rounded-xl font-bold uppercase tracking-widest hover:opacity-90 transition">
                             ${isAr ? 'حجز الآن' : 'Book Now'}
-                        </button>
+                        </a>
                     </div>
                 </div>
             `).join('');
         }
 
         function toggleLang() {
-            document.body.classList.toggle('ar');
-            document.body.classList.toggle('en');
-            document.body.dir = document.body.classList.contains('ar') ? 'rtl' : 'ltr';
-            document.querySelectorAll('.lang-ar, .lang-en').forEach(el => el.classList.toggle('hidden'));
+            const b = document.body;
+            b.classList.toggle('ar');
+            b.classList.toggle('en');
+            const isAr = b.classList.contains('ar');
+            b.dir = isAr ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('.lang-ar').forEach(el => isAr ? el.classList.remove('hidden') : el.classList.add('hidden'));
+            document.querySelectorAll('.lang-en').forEach(el => isAr ? el.classList.add('hidden') : el.classList.remove('hidden'));
+            
+            document.querySelector('.lang-switch-btn').innerText = isAr ? "English" : "عربي";
             renderTools();
         }
 
@@ -252,7 +296,16 @@
             document.body.classList.toggle('light-theme');
         }
 
-        window.onload = renderTools;
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader-wrapper');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+            }, 1200); 
+        });
+
+        window.onload = () => {
+            renderTools();
+        };
     </script>
 </body>
 </html>
