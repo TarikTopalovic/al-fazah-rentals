@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>معدات الفزعة | Al-Fazah Industrial Rentals</title>
+    <title>معدات الفزعة | Al-Fazah Industrial Rentals - Abyar Al Mashi</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,6 +46,10 @@
         }
 
         body.en { font-family: 'Montserrat', sans-serif; }
+
+        /* ضبط المسافات بين الحروف والكلمات للغة العربية لتكون احترافية */
+        .ar .location-text { letter-spacing: 0px; word-spacing: 2px; }
+        .en .location-text { letter-spacing: 1px; }
 
         /* --- PREMIUM TURBO LOADER --- */
         #loader-wrapper {
@@ -103,7 +107,7 @@
         }
 
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center; padding: 100px 20px 60px;
             background-size: cover; background-position: center; background-attachment: fixed;
@@ -111,24 +115,15 @@
                               url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2000');
         }
 
-        .tool-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .tool-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-
         .btn-gold {
             background: var(--gold);
             color: #000;
             padding: 14px 28px;
             border-radius: 12px;
-            font-weight: 800;
+            font-weight: 900;
             display: inline-block;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .hidden { display: none !important; }
@@ -141,127 +136,102 @@
             <div class="spinner"></div>
             <img src="logo.png" alt="Logo" class="loader-logo">
         </div>
-        <p class="mt-8 text-gold font-bold lang-ar">جاري تحميل الفزعة...</p>
-        <p class="mt-8 text-gold font-bold lang-en hidden">Loading Al-Fazah...</p>
+        <p class="mt-8 text-gold font-black lang-ar">جاري تحميل الفزعة...</p>
+        <p class="mt-8 text-gold font-black lang-en hidden">Loading Al-Fazah...</p>
     </div>
 
     <nav class="navbar">
         <div class="flex items-center gap-3">
             <img src="logo.png" alt="Logo" class="h-10">
-            <span class="font-black text-lg lang-ar">الفزعة</span>
-            <span class="font-black text-lg lang-en hidden">FAZAH</span>
+            <span class="font-black text-xl lang-ar">الفزعة</span>
+            <span class="font-black text-xl lang-en hidden">FAZAH</span>
         </div>
-        <div class="flex items-center gap-2">
-            <button onclick="toggleTheme()" class="px-3 py-1.5 border border-gold rounded-lg text-[10px] font-bold text-gold">THEME</button>
-            <button onclick="toggleLang()" class="px-3 py-1.5 border border-gold rounded-lg text-[10px] font-bold text-gold lang-switch-btn">English</button>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="px-4 py-2 border border-gold rounded-xl text-[12px] font-black text-gold hover:bg-gold hover:text-black transition uppercase">Theme</button>
+            <button onclick="toggleLang()" class="px-4 py-2 border border-gold rounded-xl text-[12px] font-black text-gold lang-switch-btn hover:bg-gold hover:text-black transition">English</button>
         </div>
     </nav>
     
-    <section class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-black/60 z-10"></div>
-    
-    <div class="container mx-auto px-6 relative z-20 text-center flex flex-col items-center">
-        <img src="logo.png" alt="Al-Fazah Logo" class="w-32 md:w-48 mb-8 animate-pulse">
+    <section class="hero relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
         
-        <h2 class="text-gold font-bold tracking-[0.4em] mb-4 uppercase text-sm md:text-base">
-            Riyadh's Premier Industrial Partner
-        </h2>
-        
-        <h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight text-white">
-            <span class="lang-ar">الفزعة للمعدات</span>
-            <span class="lang-en hidden uppercase">AL-FAZAH</span>
-            <br>
-            <span class="text-gold lang-ar">قوة الإنجاز في يدك</span>
-            <span class="text-gold lang-en hidden uppercase">POWERING YOUR PROJECTS</span>
-        </h1>
+        <div class="container mx-auto px-6 relative z-20 text-center flex flex-col items-center">
+            <img src="logo.png" alt="Al-Fazah Logo" class="w-32 md:w-48 mb-8 animate-pulse">
+            
+            <h2 class="text-gold font-black mb-4 uppercase text-sm md:text-lg location-text">
+                <span class="lang-ar">شريكك الصناعي الأول في أبيار الماشي - المدينة المنورة</span>
+                <span class="lang-en hidden">Abyar Al Mashi's Premier Industrial Partner - Medina</span>
+            </h2>
+            
+            <h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight text-white tracking-tighter">
+                <span class="lang-ar">الفزعة للمعدات</span>
+                <span class="lang-en hidden uppercase">AL-FAZAH</span>
+                <br>
+                <span class="text-gold lang-ar">قوة الإنجاز في يدك</span>
+                <span class="text-gold lang-en hidden uppercase">POWERING YOUR PROJECTS</span>
+            </h1>
 
-        <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto lang-ar leading-relaxed">
-            الحل الأمثل لتأجير المعدات الصناعية والإنشائية في الرياض. نوفر لك الجودة، الدقة، والسرعة التي يحتاجها مشروعك للنجاح.
-        </p>
-        <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto lang-en hidden leading-relaxed">
-            The ultimate solution for industrial and construction equipment rentals in Riyadh. We provide the quality, precision, and speed your project needs to succeed.
-        </p>
+            <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto lang-ar font-bold leading-relaxed">
+                الحل الأمثل لتأجير المعدات في أبيار الماشي. نوفر لك الجودة، الدقة، والسرعة التي يحتاجها مشروعك بالقرب من المدينة المنورة.
+            </p>
+            <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto lang-en hidden font-bold leading-relaxed text-center">
+                The ultimate solution for equipment rentals in Abyar Al Mashi. We provide quality, precision, and speed for your projects near Medina.
+            </p>
 
-        <div class="flex flex-col md:flex-row gap-6 justify-center w-full md:w-auto">
-            <a href="#catalog" class="btn-gold text-lg px-12 py-4 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(197,160,89,0.4)]">
-                <span class="lang-ar">استكشف الأسطول</span>
-                <span class="lang-en hidden uppercase">Explore Our Fleet</span>
-            </a>
-            <a href="https://wa.me/966541894161" class="border-2 border-white text-white px-12 py-4 rounded-xl font-bold hover:bg-white hover:text-black transition-all">
-                <span class="lang-ar">طلب تسعيرة فورية</span>
-                <span class="lang-en hidden uppercase">Get Instant Quote</span>
-            </a>
+            <div class="flex flex-col md:flex-row gap-6 justify-center w-full md:w-auto">
+                <a href="#catalog" class="btn-gold text-lg px-12 py-4 rounded-xl font-black transition-all hover:scale-105 shadow-[0_0_20px_rgba(197,160,89,0.4)]">
+                    <span class="lang-ar">استكشف الأسطول</span>
+                    <span class="lang-en hidden uppercase">Explore Our Fleet</span>
+                </a>
+                <a href="https://wa.me/966541894161" class="border-2 border-white text-white px-12 py-4 rounded-xl font-black hover:bg-white hover:text-black transition-all">
+                    <span class="lang-ar">طلب تسعيرة فورية</span>
+                    <span class="lang-en hidden uppercase">Get Instant Quote</span>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="catalog" class="px-5 py-24 max-w-7xl mx-auto flex flex-col items-center">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-black text-gold lang-ar">المعدات المتاحة</h2>
-            <h2 class="text-3xl font-black text-gold lang-en hidden uppercase">Equipment Fleet</h2>
+            <h2 class="text-4xl font-black text-gold lang-ar">المعدات المتاحة</h2>
+            <h2 class="text-4xl font-black text-gold lang-en hidden uppercase">Equipment Fleet</h2>
             <div class="h-1 w-16 bg-gold mx-auto mt-4"></div>
         </div>
-        <div id="tool-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full"></div>
+        <div id="tool-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full"></div>
     </section>
 
-    <section id="faq" class="px-5 py-24 bg-[var(--bg-secondary)] flex flex-col items-center">
-        <div class="max-w-3xl w-full">
-            <h2 class="text-2xl font-black text-gold text-center mb-12 lang-ar">الأسئلة الشائعة</h2>
-            <h2 class="text-2xl font-black text-gold text-center mb-12 lang-en hidden uppercase">FAQ</h2>
-            <div id="faq-container" class="space-y-4"></div>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center border-t border-gold/10 text-[12px] opacity-50">
-        <p class="lang-ar">© ٢٠٢٦ الفزعة للمعدات الصناعية. جميع الحقوق محفوظة.</p>
-        <p class="lang-en hidden">© 2026 Al-Fazah Industrial. All Rights Reserved.</p>
+    <footer class="py-12 text-center border-t border-gold/10 text-[14px] opacity-60 font-black">
+        <p class="lang-ar">© ٢٠٢٦ الفزعة للمعدات الصناعية - أبيار الماشي. جميع الحقوق محفوظة.</p>
+        <p class="lang-en hidden">© 2026 Al-Fazah Industrial - Abyar Al Mashi. All Rights Reserved.</p>
     </footer>
 
-    <a href="https://wa.me/966541894161" class="fixed bottom-6 right-6 bg-[#25d366] p-4 rounded-2xl shadow-2xl z-50 active:scale-90 transition">
+    <a href="https://wa.me/966541894161" class="fixed bottom-6 right-6 bg-[#25d366] p-4 rounded-2xl shadow-2xl z-50 transition hover:scale-110 active:scale-90">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="32" alt="WhatsApp">
     </a>
 
     <script>
         const tools = [
-            { ar: 'دريل هيلتي تكسير', en: 'Hilti Jackhammer', price: 120, img: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=400' },
+            { ar: 'دريل هيلتي تكسير', en: 'Hilti Jackhammer', price: 120, img: 'drill.jpg' },
             { ar: 'سلم ألمنيوم مزدوج', en: 'Aluminum Ladder', price: 30, img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=400' },
             { ar: 'كمبروسر هواء ٥٠ل', en: '50L Air Compressor', price: 70, img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=400' },
-            { ar: 'مولد كهرباء ٥ كيلو', en: '5KW Generator', price: 150, img: 'https://images.unsplash.com/photo-1590483734724-383b9f4a5ce2?q=80&w=400' },
+            { ar: 'مولد كهرباء ٥ كيلو', en: '5KW Generator', price: 150, img: 'generator.jpg' },
             { ar: 'صاروخ جلخ بوش', en: 'Bosch Grinder', price: 45, img: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400' },
-            { ar: 'منشار رخام كهربائي', en: 'Electric Tile Saw', price: 65, img: 'https://plus.unsplash.com/premium_photo-1663050986883-a5bdd99a7fa4?q=80&w=400' },
-            { ar: 'دريل هيلتي TE-70', en: 'Hilti TE-70 Drill', price: 90, img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400' },
-            { ar: 'ماكينة غسيل ضغط', en: 'Pressure Washer', price: 55, img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=400' },
-            { ar: 'مطرقة هدم كهربائية', en: 'Electric Jackhammer', price: 100, img: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=400' },
-            { ar: 'سلم تلسكوبي ٥ متر', en: '5M Telescopic Ladder', price: 40, img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=400' },
-            { ar: 'منفاخ هواء احترافي', en: 'Pro Air Blower', price: 25, img: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400' },
-            { ar: 'دريل شحن ماكيتا', en: 'Makita Cordless Drill', price: 40, img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400' }
-        ];
-
-        const faqs = [
-            { qAr: 'ما هي شروط التأجير؟', aAr: 'صورة الهوية الوطنية أو الإقامة وتوقيع العقد.', qEn: 'Terms?', aEn: 'Requires ID and a signed agreement.' },
-            { qAr: 'هل يوجد توصيل؟', aAr: 'نعم، نوفر التوصيل لجميع أحياء الرياض.', qEn: 'Delivery?', aEn: 'Yes, covering all Riyadh areas.' }
+            { ar: 'منشار رخام كهربائي', en: 'Electric Tile Saw', price: 65, img: 'drill.jpg' }
         ];
 
         function renderUI() {
             const isAr = document.body.classList.contains('ar');
             document.getElementById('tool-grid').innerHTML = tools.map(t => `
-                <div class="tool-card shadow-sm">
+                <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden shadow-lg transition hover:border-gold">
                     <img src="${t.img}" class="h-56 w-full object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl">${isAr ? t.ar : t.en}</h3>
-                        <p class="text-2xl font-black text-gold my-4">${t.price} <span class="text-xs opacity-50">SAR/Day</span></p>
-                        <a href="https://wa.me/966541894161" class="btn-gold w-full text-center text-sm">${isAr ? 'حجز الآن' : 'Book Now'}</a>
+                    <div class="p-8 text-center">
+                        <h3 class="font-black text-2xl">${isAr ? t.ar : t.en}</h3>
+                        <p class="text-3xl font-black text-gold my-4">${t.price} <span class="text-sm opacity-50">SAR/Day</span></p>
+                        <a href="https://wa.me/966541894161" class="btn-gold w-full font-black text-sm">${isAr ? 'حجز الآن' : 'Book Now'}</a>
                     </div>
                 </div>
             `).join('');
-
-            document.getElementById('faq-container').innerHTML = faqs.map(f => `
-                <div class="p-6 bg-[var(--bg-card)] rounded-2xl border border-gold/10 text-center">
-                    <h4 class="font-bold text-gold mb-2">${isAr ? f.qAr : f.qEn}</h4>
-                    <p class="text-sm opacity-70">${isAr ? f.aAr : f.aEn}</p>
-                </div>
-            `).join('');
-
+            
             document.querySelectorAll('.lang-ar').forEach(el => el.classList.toggle('hidden', !isAr));
             document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', isAr));
             document.querySelector('.lang-switch-btn').innerText = isAr ? "English" : "عربي";
@@ -284,5 +254,122 @@
             setTimeout(() => document.getElementById('loader-wrapper').classList.add('fade-out'), 1000);
         };
     </script>
+
+<section id="faq" class="px-5 py-32 bg-[var(--bg-secondary)] flex flex-col items-center">
+        <div class="max-w-4xl w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gold lang-ar tracking-tighter">الأسئلة الشائعة</h2>
+                <h2 class="text-4xl md:text-5xl font-black text-gold lang-en hidden uppercase tracking-widest">General FAQ</h2>
+                <p class="mt-4 opacity-50 font-bold lang-ar text-lg">كل ما تحتاج معرفته عن خدماتنا في أبيار الماشي</p>
+                <p class="mt-4 opacity-50 font-bold lang-en hidden text-lg">Everything you need to know about our services in Abyar Al Mashi</p>
+            </div>
+
+            <div id="faq-container" class="space-y-6">
+                <div class="p-8 bg-[var(--bg-card)] rounded-2xl border-2 border-gold/5 hover:border-gold/30 transition duration-500 shadow-xl group">
+                    <h4 class="text-xl font-black text-gold mb-3 flex items-center gap-3">
+                        <span class="bg-gold/10 p-2 rounded-lg">01</span>
+                        <span class="lang-ar">ما هي الأوراق المطلوبة للتأجير؟</span>
+                        <span class="lang-en hidden uppercase">What documents are required?</span>
+                    </h4>
+                    <p class="text-base opacity-70 font-bold leading-relaxed">
+                        <span class="lang-ar">نطلب فقط صورة الهوية الوطنية (أو الإقامة) وتوقيع عقد الإيجار البسيط في مقرنا.</span>
+                        <span class="lang-en hidden">We only require a National ID (or Iqama) and a simple signed rental agreement at our office.</span>
+                    </p>
+                </div>
+
+                <div class="p-8 bg-[var(--bg-card)] rounded-2xl border-2 border-gold/5 hover:border-gold/30 transition duration-500 shadow-xl group">
+                    <h4 class="text-xl font-black text-gold mb-3 flex items-center gap-3">
+                        <span class="bg-gold/10 p-2 rounded-lg">02</span>
+                        <span class="lang-ar">هل توفرون خدمة التوصيل للمواقع الإنشائية؟</span>
+                        <span class="lang-en hidden uppercase">Do you offer site delivery?</span>
+                    </h4>
+                    <p class="text-base opacity-70 font-bold leading-relaxed">
+                        <span class="lang-ar">نعم، نوفر خدمة التوصيل السريع لجميع المواقع في المدينة المنورة وأبيار الماشي والمناطق المجاورة.</span>
+                        <span class="lang-en hidden">Yes, we provide express delivery to all sites in Medina, Abyar Al Mashi, and surrounding areas.</span>
+                    </p>
+                </div>
+
+                <div class="p-8 bg-[var(--bg-card)] rounded-2xl border-2 border-gold/5 hover:border-gold/30 transition duration-500 shadow-xl group">
+                    <h4 class="text-xl font-black text-gold mb-3 flex items-center gap-3">
+                        <span class="bg-gold/10 p-2 rounded-lg">03</span>
+                        <span class="lang-ar">ماذا يحدث في حال تعطلت المعدة أثناء العمل؟</span>
+                        <span class="lang-en hidden uppercase">What if the equipment breaks?</span>
+                    </h4>
+                    <p class="text-base opacity-70 font-bold leading-relaxed">
+                        <span class="lang-ar">فريق الصيانة لدينا جاهز للتحرك فوراً. نقوم بإصلاح العطل في موقعك أو استبدال المعدة فوراً لضمان عدم توقف مشروعك.</span>
+                        <span class="lang-en hidden">Our maintenance team is ready to move immediately. We repair the fault on-site or replace the unit to ensure your project never stops.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black border-t-4 border-gold pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                
+                <div class="md:col-span-1 flex flex-col items-center md:items-start">
+                    <img src="logo.png" alt="Logo" class="h-20 mb-6 grayscale hover:grayscale-0 transition duration-500">
+                    <p class="lang-ar text-gray-400 text-sm leading-relaxed text-center md:text-start font-bold">
+                        نحن الفزعة. نوفر القوة والمعدات التي تحرك مشاريع المدينة المنورة. من قلب أبيار الماشي، نخدم رؤيتكم.
+                    </p>
+                    <p class="lang-en hidden text-gray-400 text-sm leading-relaxed text-center md:text-start font-bold">
+                        We are Al-Fazah. Powering Medina's growth. From Abyar Al Mashi, we deliver excellence to your construction site.
+                    </p>
+                </div>
+
+                <div class="text-center md:text-start">
+                    <h4 class="text-gold font-black uppercase tracking-widest mb-6 border-b-2 border-gold/20 inline-block pb-2">
+                        <span class="lang-ar">الأسطول</span>
+                        <span class="lang-en hidden">The Fleet</span>
+                    </h4>
+                    <ul class="space-y-4 text-sm font-bold text-gray-400">
+                        <li><a href="#catalog" class="hover:text-gold transition">Heavy Hammers</a></li>
+                        <li><a href="#catalog" class="hover:text-gold transition">Power Gen</a></li>
+                        <li><a href="#catalog" class="hover:text-gold transition">Ladders & Safety</a></li>
+                        <li><a href="#catalog" class="hover:text-gold transition">Air Systems</a></li>
+                    </ul>
+                </div>
+
+                <div class="text-center md:text-start">
+                    <h4 class="text-gold font-black uppercase tracking-widest mb-6 border-b-2 border-gold/20 inline-block pb-2">
+                        <span class="lang-ar">التواصل</span>
+                        <span class="lang-en hidden">Connect</span>
+                    </h4>
+                    <div class="space-y-4 text-sm font-bold">
+                        <p class="flex items-center justify-center md:justify-start gap-3">
+                            <span class="text-gold">📍</span> 
+                            <span class="lang-ar">أبيار الماشي، المدينة المنورة</span>
+                            <span class="lang-en hidden">Abyar Al Mashi, Medina</span>
+                        </p>
+                        <p class="flex items-center justify-center md:justify-start gap-3">
+                            <span class="text-gold">📞</span> +966 54 189 4161
+                        </p>
+                        <p class="text-xs text-gold/60 uppercase tracking-tighter">Emergency Support 24/7 Available</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center border-2 border-gold/20 rounded-3xl p-8 bg-zinc-900 shadow-2xl">
+                    <div class="text-3xl font-black text-gold mb-1 tracking-tighter">AL-FAZAH</div>
+                    <div class="text-[10px] uppercase tracking-[0.4em] text-gray-500 mb-6">Medina - KSA</div>
+                    <a href="https://wa.me/966541894161" class="w-full text-center text-xs bg-gold text-black py-3 rounded-xl font-black hover:bg-white hover:scale-105 transition-all">
+                        <span class="lang-ar">احجز معدتك الآن</span>
+                        <span class="lang-en hidden">RESERVE GEAR</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gold/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] font-black opacity-30 tracking-[0.2em] uppercase">
+                    © 2026 Al-Fazah Industrial Rentals | Powered by Medina Excellence
+                </p>
+                <div class="flex gap-8 opacity-40 text-[10px] font-black uppercase tracking-widest">
+                    <a href="#" class="hover:text-gold transition">Safety</a>
+                    <a href="#" class="hover:text-gold transition">Legal</a>
+                    <a href="#" class="hover:text-gold transition">KSA Vision 2030</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
