@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معدات الفزعة | Al-Fazah Industrial Rentals</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* --- DYNAMIC THEME ENGINE --- */
+        :root {
+            --gold: #c5a059;
+            --gold-dark: #a38446;
+            --transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark Theme (Default) */
+        body.dark-theme {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #222222;
+            --nav-bg: rgba(0, 0, 0, 0.9);
+            --hero-overlay: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Light Theme */
+        body.light-theme {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f4f7f6;
+            --bg-card: #ffffff;
+            --text-main: #0e2a47;
+            --text-muted: #4a5568;
+            --border: #e2e8f0;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --hero-overlay: rgba(255, 255, 255, 0.85);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: var(--transition);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body.en { font-family: 'Montserrat', sans-serif; }
+
+        /* --- UI COMPONENTS --- */
+        .navbar {
+            background: var(--nav-bg);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            height: 90px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
+                              url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2000');
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #000;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-weight: 900;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-gold:hover { transform: scale(1.05); background: #fff; }
+
+        .hidden { display: none !important; }
+
+        /* Background texture for white theme */
+        body.light-theme {
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+    </style>
+</head>
+<body class="ar dark-theme">
+
+    <nav class="navbar">
+        <div class="flex items-center gap-4">
+            <img src="logo.png" alt="Logo" class="h-14">
+            <span class="font-black text-xl lang-ar">معدات الفزعة</span>
+            <span class="font-black text-xl lang-en hidden">AL-FAZAH</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="border-2 border-gold text-gold px-4 py-1 rounded-full text-xs font-bold hover:bg-gold hover:text-black transition">🌓 THEME</button>
+            <button onclick="toggleLang()" class="border-2 border-gold text-gold px-4 py-1 rounded-full text-xs font-bold hover:bg-gold hover:text-black transition">EN/AR</button>
+            <a href="https://wa.me/966500000000" class="btn-gold hidden md:block lang-ar">اطلب الآن</a>
+            <a href="https://wa.me/966500000000" class="btn-gold hidden md:block lang-en hidden">ORDER NOW</a>
+        </div>
+    </nav>
+
+    <section class="hero px-6">
+        <div class="max-w-5xl">
+            <h2 class="text-gold font-bold tracking-[0.3em] mb-4 uppercase text-sm">Riyadh Industrial Rentals</h2>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">
+                <span class="lang-ar">الفزعة للمعدات</span>
+                <span class="lang-en hidden uppercase">AL-FAZAH</span>
+                <br>
+                <span class="text-gold lang-ar">الصناعية</span>
+                <span class="text-gold lang-en hidden uppercase">EQUIPMENT</span>
+            </h1>
+            <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-3xl mx-auto lang-ar">
+                نوفر لك أحدث الأدوات الإنشائية بأفضل الأسعار في الرياض. دقة، سرعة، وموثوقية في كل مشروع.
+            </p>
+            <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-3xl mx-auto lang-en hidden">
+                Providing high-end construction tools at the best rates in Riyadh. Precision and speed for every project.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#catalog" class="btn-gold text-lg">استكشف المعدات (Catalog)</a>
+                <a href="#faq" class="border-2 border-current px-12 py-4 rounded-lg font-bold">من نحن (About)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog" class="max-w-7xl mx-auto px-6 py-32">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 lang-ar text-gold">أكثر المعدات طلباً</h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-4 lang-en hidden text-gold">Our Fleet</h2>
+            <p class="opacity-60 lang-ar">معدات عالمية بصيانة دورية لضمان عملك دون انقطاع.</p>
+        </div>
+        
+        <div id="tool-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            </div>
+    </section>
+
+    <section class="py-24 bg-[var(--bg-secondary)] px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div class="p-8">
+                <div class="text-5xl mb-4 text-gold font-black">01</div>
+                <h4 class="font-bold text-xl mb-2 lang-ar">اختر معدتك</h4>
+                <p class="opacity-60 text-sm">تصفح الكتالوج واختر الأنسب.</p>
+            </div>
+            <div class="p-8">
+                <div class="text-5xl mb-4 text-gold font-black">02</div>
+                <h4 class="font-bold text-xl mb-2 lang-ar">تواصل معنا</h4>
+                <p class="opacity-60 text-sm">عبر الواتساب لتأكيد الطلب.</p>
+            </div>
+            <div class="p-8">
+                <div class="text-5xl mb-4 text-gold font-black">03</div>
+                <h4 class="font-bold text-xl mb-2 lang-ar">استلم في الموقع</h4>
+                <p class="opacity-60 text-sm">توصيل فوري لباب موقعك.</p>
+            </div>
+            <div class="p-8">
+                <div class="text-5xl mb-4 text-gold font-black">04</div>
+                <h4 class="font-bold text-xl mb-2 lang-ar">أنهِ عملك</h4>
+                <p class="opacity-60 text-sm">وسنقوم باستلامها منك لاحقاً.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="max-w-4xl mx-auto px-6 py-32">
+        <h3 class="text-4xl font-black text-gold text-center mb-16 lang-ar">الأسئلة الشائعة</h3>
+        <div class="space-y-6">
+            <div class="p-8 border border-gold/20 rounded-2xl bg-[var(--bg-card)]">
+                <h4 class="text-xl font-bold mb-3 lang-ar">ما هي شروط التأجير؟</h4>
+                <p class="opacity-60 lang-ar">صورة الهوية، مبلغ تأمين مسترد، وتوقيع العقد البسيط.</p>
+            </div>
+            <div class="p-8 border border-gold/20 rounded-2xl bg-[var(--bg-card)]">
+                <h4 class="text-xl font-bold mb-3 lang-ar">هل تتوفر خدمة التوصيل؟</h4>
+                <p class="opacity-60 lang-ar">نعم، نوفر التوصيل لجميع أحياء الرياض برسوم رمزية.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-gold/20 text-center">
+        <p class="opacity-50 lang-ar text-sm">© ٢٠٢٦ معدات الفزعة. جميع الحقوق محفوظة.</p>
+        <p class="opacity-50 lang-en hidden text-sm">© 2026 Al-Fazah Equipment. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/966500000000" class="fixed bottom-10 left-10 bg-[#25d366] p-5 rounded-full shadow-2xl z-50 hover:scale-110 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
+    </a>
+
+    <script>
+        const tools = [
+            { nameAr: 'دريل هيلتي تكسير', nameEn: 'Hilti Jackhammer', price: 85, img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400' },
+            { nameAr: 'مولد كهرباء كاتم ٥ كيلو', nameEn: '5KW Silent Generator', price: 150, img: 'https://images.unsplash.com/photo-1590483734724-383b9f4a5ce2?q=80&w=400' },
+            { nameAr: 'صاروخ جلخ بوش احترافي', nameEn: 'Pro Bosch Grinder', price: 45, img: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400' },
+            { nameAr: 'مطرقة هدم كهربائية كبيرة', nameEn: 'Heavy Demo Hammer', price: 120, img: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=400' },
+            { nameAr: 'سلم ألمنيوم مزدوج ٤ متر', nameEn: '4M Double Ladder', price: 30, img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=400' },
+            { nameAr: 'كمبروسر هواء ٥٠ لتر', nameEn: '50L Air Compressor', price: 70, img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=400' }
+        ];
+
+        function renderTools() {
+            const grid = document.getElementById('tool-grid');
+            const isAr = document.body.classList.contains('ar');
+            grid.innerHTML = tools.map(item => `
+                <div class="tool-card">
+                    <img src="${item.img}" class="h-64 w-full object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold">${isAr ? item.nameAr : item.nameEn}</h3>
+                        <div class="text-3xl font-black text-gold mt-4">${item.price} <small class="text-sm opacity-50 font-normal">SAR / Day</small></div>
+                        <button class="w-full mt-8 bg-[var(--text-main)] text-[var(--bg-primary)] py-4 rounded-xl font-bold uppercase tracking-widest hover:opacity-90 transition">
+                            ${isAr ? 'حجز الآن' : 'Book Now'}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleLang() {
+            document.body.classList.toggle('ar');
+            document.body.classList.toggle('en');
+            document.body.dir = document.body.classList.contains('ar') ? 'rtl' : 'ltr';
+            document.querySelectorAll('.lang-ar, .lang-en').forEach(el => el.classList.toggle('hidden'));
+            renderTools();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme');
+        }
+
+        window.onload = renderTools;
+    </script>
+</body>
+</html>

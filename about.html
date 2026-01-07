@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن | Al-Fazah About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ar bg-white">
+
+    <nav class="fixed w-full z-50 glass border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="images/logo.png" alt="Logo" class="h-12">
+                <span class="text-navy font-bold text-xl uppercase font-english">Al-Fazah</span>
+            </div>
+            <div class="hidden md:flex space-x-8 space-x-reverse font-bold text-navy">
+                <a href="index.html">الرئيسية</a>
+                <a href="catalog.html">المعدات</a>
+                <a href="about.html" class="text-gold">من نحن</a>
+                <a href="contact.html">اتصل بنا</a>
+            </div>
+            <button onclick="toggleLang()" class="btn-primary py-2 px-4 text-sm">English</button>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 bg-navy text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-4">
+            <span class="lang-ar">قصة "الفزعة" للمعدات</span>
+            <span class="lang-en hidden">The Al-Fazah Story</span>
+        </h1>
+        <div class="h-1 w-32 bg-gold mx-auto"></div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+            <h2 class="text-3xl font-black text-navy mb-6">
+                <span class="lang-ar">بدايتنا ورؤيتنا</span>
+                <span class="lang-en hidden">Our Origin & Vision</span>
+            </h2>
+            <div class="space-y-6 text-gray-600 leading-loose text-lg">
+                <p class="lang-ar">
+                    تأسست "معدات الفزعة" في قلب مدينة الرياض انطلاقاً من ملاحظة فجوة كبيرة في سوق الإنشاءات المحلي؛ حيث كان المقاولون وأصحاب المنازل يواجهون صعوبات في العثور على معدات احترافية بصيانة عالية وتوصيل سريع.
+                </p>
+                <p class="lang-ar">
+                    اخترنا اسم "الفزعة" لأنه يجسد قيمنا الجوهرية: الاستجابة السريعة، والموثوقية، والوقوف بجانب عملائنا في أصعب ظروف العمل. نحن لا نقوم فقط بتأجير الأدوات، بل نشاركك في بناء مشاريعك.
+                </p>
+                <p class="lang-en hidden">
+                    Al-Fazah Equipment was founded in the heart of Riyadh after identifying a major gap in the local construction market. Contractors and homeowners were struggling to find high-performance, well-maintained tools with reliable delivery.
+                </p>
+                <p class="lang-en hidden">
+                    We chose the name "Al-Fazah" (meaning 'chivalrous assistance') because it embodies our core values: rapid response, reliability, and standing by our clients during their most critical project phases.
+                </p>
+            </div>
+        </div>
+        <div class="relative">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1000" class="rounded-3xl shadow-2xl">
+            <div class="absolute -bottom-6 -right-6 bg-gold p-8 rounded-2xl shadow-xl hidden md:block">
+                <span class="text-navy font-black text-4xl">+١٠ سنوات</span>
+                <p class="text-navy font-bold">خبرة في القطاع</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50 py-24">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black text-navy mb-16">
+                <span class="lang-ar">قيمنا الجوهرية</span>
+                <span class="lang-en hidden">Our Core Values</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition border-t-4 border-gold">
+                    <div class="text-5xl mb-6">🛡️</div>
+                    <h3 class="text-2xl font-bold text-navy mb-4 lang-ar">الجودة والأمان</h3>
+                    <h3 class="text-2xl font-bold text-navy mb-4 lang-en hidden">Safety & Quality</h3>
+                    <p class="text-gray-500 lang-ar">تخضع كل معدة لدينا لفحص صيانة دقيق بعد كل عملية تأجير لضمان أعلى معايير الأمان.</p>
+                    <p class="text-gray-500 lang-en hidden">Every piece of equipment undergoes rigorous maintenance checks after every rental to ensure peak safety standards.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition border-t-4 border-navy">
+                    <div class="text-5xl mb-6">🚀</div>
+                    <h3 class="text-2xl font-bold text-navy mb-4 lang-ar">السرعة (الفزعة)</h3>
+                    <h3 class="text-2xl font-bold text-navy mb-4 lang-en hidden">Speed (The Fazah)</h3>
+                    <p class="text-gray-500 lang-ar">ندرك أن الوقت هو المال في عالم الإنشاءات، لذا نلتزم بتوصيل المعدات لموقعك في أسرع وقت ممكن.</p>
+                    <p class="text-gray-500 lang-en hidden">We understand that time is money in construction. We commit to delivering tools to your site as fast as humanly possible.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition border-t-4 border-gold">
+                    <div class="text-5xl mb-6">🤝</div>
+                    <h3 class="text-2xl font-bold text-navy mb-4 lang-ar">الشراكة الدائمة</h3>
+                    <h3 class="text-2xl font-bold text-navy mb-4 lang-en hidden">Lasting Partnerships</h3>
+                    <p class="text-gray-500 lang-ar">نسعى لبناء علاقات طويلة الأمد مع عملائنا عبر تقديم أسعار عادلة ودعم فني متواصل.</p>
+                    <p class="text-gray-500 lang-en hidden">We strive to build long-term relationships with our clients through fair pricing and continuous technical support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy py-12 px-4 border-t-4 border-gold text-center">
+        <p class="text-white opacity-70">© ٢٠٢٦ معدات الفزعة - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

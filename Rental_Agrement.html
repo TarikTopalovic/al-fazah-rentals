@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <style>
+        body { font-family: 'Cairo', sans-serif; padding: 40px; color: #333; }
+        .header { display: flex; justify-content: space-between; border-bottom: 3px solid #c5a059; padding-bottom: 20px; }
+        .logo-box { color: #0e2a47; font-weight: bold; font-size: 24px; }
+        .contract-title { text-align: center; margin: 30px 0; font-size: 22px; text-decoration: underline; }
+        .section { margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .label { font-weight: bold; color: #0e2a47; }
+        .footer { margin-top: 50px; display: flex; justify-content: space-around; }
+        .sign-box { border-top: 1px solid #000; width: 200px; text-align: center; padding-top: 10px; }
+        @media print { .no-print { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-box">معدات الفزعة<br><small>AL-FAZAH RENTALS</small></div>
+        <div>رقم العقد: #_______<br>التاريخ: __/__/٢٠٢٦</div>
+    </div>
+
+    <h2 class="contract-title">عقد تأجير معدات / Equipment Rental Agreement</h2>
+
+    <div class="section">
+        <div class="grid">
+            <div><span class="label">اسم المستأجر (Customer):</span> ________________</div>
+            <div><span class="label">رقم الهوية/الإقامة:</span> ________________</div>
+            <div><span class="label">الجوال:</span> ________________</div>
+            <div><span class="label">العنوان/الموقع:</span> ________________</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <table width="100%" border="1" cellpadding="10" style="border-collapse: collapse;">
+            <tr style="background: #f4f4f4;">
+                <th>المعدة (Equipment)</th>
+                <th>الرقم التسلسلي (S/N)</th>
+                <th>مدة التأجير (Period)</th>
+                <th>القيمة (Price)</th>
+            </tr>
+            <tr>
+                <td height="40"></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h4 style="margin-top:0;">الشروط والأحكام (Terms):</h4>
+        <ol style="font-size: 13px;">
+            <li>يلتزم المستأجر بإعادة المعدة في حالتها الأصلية. (Return in original condition).</li>
+            <li>في حال التلف، يتحمل المستأجر تكاليف الإصلاح بالكامل. (Customer pays for damages).</li>
+            <li>التأخير عن الموعد المحدد يترتب عليه رسوم إضافية. (Late fees apply).</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <div class="sign-box">توقيع المستأجر</div>
+        <div class="sign-box">ختم المؤسسة</div>
+    </div>
+
+    <button class="no-print" onclick="window.print()" style="margin-top:20px; padding:10px 20px; background:#c5a059; border:none; color:white; cursor:pointer;">طباعة العقد (Print)</button>
+</body>
+</html>
