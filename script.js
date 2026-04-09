@@ -95,6 +95,26 @@ function initLang() {
     renderTools();
 }
 
+// ── MOBILE MENU ──
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger-btn');
+    if (!menu || !hamburger) return;
+
+    const isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+function closeMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger-btn');
+    if (menu) menu.classList.remove('open');
+    if (hamburger) hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
 // ── SCROLL REVEAL OBSERVER ──
 let observer;
 function observeElements() {
@@ -124,10 +144,7 @@ function animateCounters() {
                 const step = Math.max(1, Math.floor(target / 60));
                 const timer = setInterval(() => {
                     current += step;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
+                    if (current >= target) { current = target; clearInterval(timer); }
                     el.textContent = prefix + current + suffix;
                 }, 25);
                 counterObserver.unobserve(el);

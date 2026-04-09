@@ -5,28 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="About Al-Fazah Industrial Equipment Rentals — our story, core values and mission in Abyar Al Mashi, Medina.">
     <title>من نحن | Al-Fazah About Us</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#d4af37',
-                        'gold-dark': '#b5952f',
-                    }
-                }
-            }
-        }
-    </script>
+    <script>tailwind.config = { theme: { extend: { colors: { gold: '#d4af37', 'gold-dark': '#b5952f' } } } }</script>
 </head>
 <body class="ar dark-theme">
 
-    <!-- ── NAVBAR ── -->
+    <!-- NAVBAR -->
     <nav class="navbar scrolled" id="main-nav">
         <div class="flex items-center gap-4">
             <a href="index.html" class="flex items-center gap-3 group">
@@ -38,36 +26,33 @@
                 </div>
             </a>
         </div>
-        
-        <div class="hidden md:flex gap-8 font-bold items-center text-sm uppercase tracking-wider">
-            <a href="index.html" class="hover:text-gold transition relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-gold after:rounded after:transition-all">
-                <span class="lang-ar">الرئيسية</span>
-                <span class="lang-en hidden">Home</span>
-            </a>
-            <a href="about.html" class="text-gold transition relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-gold after:rounded">
-                <span class="lang-ar">من نحن</span>
-                <span class="lang-en hidden">About</span>
-            </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link"><span class="lang-ar">الرئيسية</span><span class="lang-en hidden">Home</span></a>
+            <a href="services.html" class="nav-link"><span class="lang-ar">خدماتنا</span><span class="lang-en hidden">Services</span></a>
+            <a href="about.html" class="nav-link active"><span class="lang-ar">من نحن</span><span class="lang-en hidden">About</span></a>
+            <a href="contact.html" class="nav-link"><span class="lang-ar">تواصل معنا</span><span class="lang-en hidden">Contact</span></a>
         </div>
-        
-        <div class="flex items-center gap-3">
+        <div class="nav-controls">
             <button onclick="toggleTheme()" id="theme-icon" class="w-10 h-10 rounded-full border border-[var(--border-strong)] flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300" aria-label="Toggle theme">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
             </button>
-            <button onclick="toggleLang()" class="px-5 py-2 border border-[var(--border-strong)] rounded-full text-xs font-black text-gold lang-switch-btn hover:bg-gold hover:text-black transition-all duration-300 uppercase tracking-wider" aria-label="Toggle language">English</button>
+            <button onclick="toggleLang()" class="px-4 py-2 border border-[var(--border-strong)] rounded-full text-[11px] font-black text-gold lang-switch-btn hover:bg-gold hover:text-black transition-all duration-300 uppercase tracking-wider">English</button>
+            <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-menu-link" onclick="closeMobileMenu()"><span class="lang-ar">الرئيسية</span><span class="lang-en hidden">Home</span></a>
+        <a href="services.html" class="mobile-menu-link" onclick="closeMobileMenu()"><span class="lang-ar">خدماتنا</span><span class="lang-en hidden">Services</span></a>
+        <a href="about.html" class="mobile-menu-link active" onclick="closeMobileMenu()"><span class="lang-ar">من نحن</span><span class="lang-en hidden">About</span></a>
+        <a href="contact.html" class="mobile-menu-link" onclick="closeMobileMenu()"><span class="lang-ar">تواصل معنا</span><span class="lang-en hidden">Contact</span></a>
+    </div>
 
-    <!-- ── HEADER ── -->
-    <section class="pt-32 pb-20 bg-[var(--bg-secondary)] text-center px-6 relative overflow-hidden border-b border-[var(--border)]">
+    <!-- PAGE HEADER -->
+    <section class="page-header px-6">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2000')] bg-cover bg-center opacity-[0.04]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)] to-transparent"></div>
-        
         <div class="relative z-10 reveal">
-            <span class="section-label mb-6 inline-flex">
-                <span class="lang-ar">من نحن</span>
-                <span class="lang-en hidden">About Us</span>
-            </span>
+            <span class="section-label mb-6 inline-flex"><span class="lang-ar">من نحن</span><span class="lang-en hidden">About Us</span></span>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mt-4 mb-6">
                 <span class="lang-ar text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">قصة معدات الفزعة</span>
                 <span class="lang-en hidden text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">The Al-Fazah Story</span>
@@ -76,30 +61,19 @@
         </div>
     </section>
 
-    <!-- ── STORY ── -->
+    <!-- STORY -->
     <section class="max-w-7xl mx-auto px-6 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div class="reveal-left delay-100">
-            <span class="section-label mb-6">
-                <span class="lang-ar">البداية</span>
-                <span class="lang-en hidden">Origins</span>
-            </span>
+            <span class="section-label mb-6"><span class="lang-ar">البداية</span><span class="lang-en hidden">Origins</span></span>
             <h2 class="text-3xl md:text-4xl font-black mb-8">
                 <span class="lang-ar text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">بدايتنا ورؤيتنا</span>
                 <span class="lang-en hidden text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">Our Origin & Vision</span>
             </h2>
             <div class="space-y-5 text-muted leading-loose text-base font-semibold">
-                <p class="lang-ar">
-                    تأسست "معدات الفزعة" في قلب المدينة المنورة، انطلاقاً من ملاحظة فجوة كبيرة في سوق الإنشاءات المحلي؛ حيث كان المقاولون وأصحاب المنازل يواجهون صعوبات في العثور على معدات احترافية بصيانة عالية وتوصيل سريع في أبيار الماشي وما حولها.
-                </p>
-                <p class="lang-ar">
-                    اخترنا اسم "الفزعة" لأنه يجسد قيمنا الجوهرية: الاستجابة السريعة، والموثوقية، والوقوف بجانب عملائنا في أصعب ظروف العمل. نحن لا نقوم فقط بتأجير الأدوات، بل نشاركك في بناء وتأسيس مشاريعك لتصل إلى أعلى درجات الإتقان.
-                </p>
-                <p class="lang-en hidden">
-                    Al-Fazah Equipment was founded in the heart of Medina after identifying a critical gap in the local construction market. Contractors and homeowners around Abyar Al Mashi struggled to find high-performance, well-maintained tools with reliable delivery.
-                </p>
-                <p class="lang-en hidden">
-                    We chose the name "Al-Fazah" (meaning 'chivalrous assistance') because it embodies our core values: rapid response, reliability, and standing by our clients during their most critical project phases.
-                </p>
+                <p class="lang-ar">تأسست "معدات الفزعة" في قلب المدينة المنورة، انطلاقاً من ملاحظة فجوة كبيرة في سوق الإنشاءات المحلي؛ حيث كان المقاولون وأصحاب المنازل يواجهون صعوبات في العثور على معدات احترافية بصيانة عالية وتوصيل سريع في أبيار الماشي وما حولها.</p>
+                <p class="lang-ar">اخترنا اسم "الفزعة" لأنه يجسد قيمنا الجوهرية: الاستجابة السريعة، والموثوقية، والوقوف بجانب عملائنا في أصعب ظروف العمل. نحن لا نقوم فقط بتأجير الأدوات، بل نشاركك في بناء وتأسيس مشاريعك لتصل إلى أعلى درجات الإتقان.</p>
+                <p class="lang-en hidden">Al-Fazah Equipment was founded in the heart of Medina after identifying a critical gap in the local construction market. Contractors and homeowners around Abyar Al Mashi struggled to find high-performance, well-maintained tools with reliable delivery.</p>
+                <p class="lang-en hidden">We chose the name "Al-Fazah" (meaning 'chivalrous assistance') because it embodies our core values: rapid response, reliability, and standing by our clients during their most critical project phases.</p>
             </div>
         </div>
         <div class="relative reveal-right delay-200">
@@ -107,87 +81,74 @@
             <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1000" class="rounded-3xl shadow-[var(--card-shadow)] relative z-10 border border-[var(--border)]" alt="Construction equipment">
             <div class="absolute -bottom-8 -right-8 bg-gradient-to-br from-gold to-gold-dark p-6 md:p-8 rounded-2xl shadow-2xl hidden lg:block z-20 border border-yellow-300/20 hover:-translate-y-2 transition duration-500">
                 <span class="text-black font-black text-4xl md:text-5xl leading-none block">+١٠</span>
-                <p class="text-black/70 font-black mt-2 text-sm leading-tight">
-                    <span class="lang-ar">سنوات خبرة</span>
-                    <span class="lang-en hidden">Years Exp.</span>
-                </p>
+                <p class="text-black/70 font-black mt-2 text-sm leading-tight"><span class="lang-ar">سنوات خبرة</span><span class="lang-en hidden">Years Exp.</span></p>
             </div>
         </div>
     </section>
 
-    <!-- ── CORE VALUES ── -->
+    <!-- CORE VALUES -->
     <section class="bg-[var(--bg-secondary)] py-28 md:py-36 border-y border-[var(--border)] overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="reveal mb-16 md:mb-20">
-                <span class="section-label">
-                    <span class="lang-ar">القيم</span>
-                    <span class="lang-en hidden">Values</span>
-                </span>
+                <span class="section-label"><span class="lang-ar">القيم</span><span class="lang-en hidden">Values</span></span>
                 <h2 class="text-4xl md:text-5xl font-black mt-4 text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">
-                    <span class="lang-ar">قيمنا الجوهرية</span>
-                    <span class="lang-en hidden">Our Core Values</span>
+                    <span class="lang-ar">قيمنا الجوهرية</span><span class="lang-en hidden">Our Core Values</span>
                 </h2>
                 <div class="gold-divider mt-6"></div>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="faq-item p-10 text-center group reveal delay-100 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">🛡️</div>
-                    <h3 class="text-xl font-black mb-4">
-                        <span class="lang-ar">الجودة والأمان</span>
-                        <span class="lang-en hidden">Safety & Quality</span>
-                    </h3>
-                    <p class="text-muted font-semibold leading-relaxed text-sm">
-                        <span class="lang-ar">تخضع كل معدة لدينا لفحص صيانة دقيق بعد كل عملية تأجير لضمان أعلى معايير الأمان والأداء.</span>
-                        <span class="lang-en hidden">Every piece of equipment undergoes rigorous maintenance checks after every rental to ensure peak safety standards.</span>
-                    </p>
+                    <h3 class="text-xl font-black mb-4"><span class="lang-ar">الجودة والأمان</span><span class="lang-en hidden">Safety & Quality</span></h3>
+                    <p class="text-muted font-semibold leading-relaxed text-sm"><span class="lang-ar">تخضع كل معدة لدينا لفحص صيانة دقيق بعد كل عملية تأجير لضمان أعلى معايير الأمان والأداء.</span><span class="lang-en hidden">Every piece of equipment undergoes rigorous maintenance checks after every rental to ensure peak safety standards.</span></p>
                 </div>
-                
                 <div class="faq-item p-10 text-center group reveal delay-200 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">⚡</div>
-                    <h3 class="text-xl font-black mb-4">
-                        <span class="lang-ar">السرعة (الفزعة)</span>
-                        <span class="lang-en hidden">Speed (The Fazah)</span>
-                    </h3>
-                    <p class="text-muted font-semibold leading-relaxed text-sm">
-                        <span class="lang-ar">ندرك أن الوقت هو المال في عالم الإنشاءات، لذا نلتزم بتوصيل المعدات لموقعك في أسرع وقت.</span>
-                        <span class="lang-en hidden">Time is money in construction. We commit to delivering standard tools to your site as fast as humanly possible.</span>
-                    </p>
+                    <h3 class="text-xl font-black mb-4"><span class="lang-ar">السرعة (الفزعة)</span><span class="lang-en hidden">Speed (The Fazah)</span></h3>
+                    <p class="text-muted font-semibold leading-relaxed text-sm"><span class="lang-ar">ندرك أن الوقت هو المال في عالم الإنشاءات، لذا نلتزم بتوصيل المعدات لموقعك في أسرع وقت.</span><span class="lang-en hidden">Time is money in construction. We commit to delivering tools to your site as fast as humanly possible.</span></p>
                 </div>
-                
                 <div class="faq-item p-10 text-center group reveal delay-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">🤝</div>
-                    <h3 class="text-xl font-black mb-4">
-                        <span class="lang-ar">الشراكة الدائمة</span>
-                        <span class="lang-en hidden">Lasting Partners</span>
-                    </h3>
-                    <p class="text-muted font-semibold leading-relaxed text-sm">
-                        <span class="lang-ar">نسعى لبناء علاقات طويلة الأمد مع عملائنا عبر تقديم أسعار عادلة ودعم فني متواصل.</span>
-                        <span class="lang-en hidden">Building long-lasting client relationships through fair pricing, transparent deals, and continuous support.</span>
-                    </p>
+                    <h3 class="text-xl font-black mb-4"><span class="lang-ar">الشراكة الدائمة</span><span class="lang-en hidden">Lasting Partners</span></h3>
+                    <p class="text-muted font-semibold leading-relaxed text-sm"><span class="lang-ar">نسعى لبناء علاقات طويلة الأمد مع عملائنا عبر تقديم أسعار عادلة ودعم فني متواصل.</span><span class="lang-en hidden">Building long-lasting client relationships through fair pricing, transparent deals, and continuous support.</span></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── FOOTER ── -->
-    <footer class="site-footer pt-10 pb-8 px-6">
+    <!-- CTA -->
+    <section class="py-20 md:py-28 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/5"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="text-3xl md:text-5xl font-black mb-6"><span class="lang-ar">انضم لعملائنا</span><span class="lang-en hidden">Join Our Clients</span></h2>
+            <p class="text-muted font-bold text-lg mb-10"><span class="lang-ar">تعرف على خدماتنا المتكاملة أو تواصل معنا مباشرة.</span><span class="lang-en hidden">Explore our full services or get in touch directly.</span></p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="services.html" class="btn-gold text-base px-12 py-5"><span class="lang-ar">خدماتنا</span><span class="lang-en hidden">Our Services</span></a>
+                <a href="contact.html" class="btn-outline-gold text-base px-12 py-5"><span class="lang-ar">تواصل معنا</span><span class="lang-en hidden">Contact Us</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer pt-12 pb-8 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="footer-bottom pt-0 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest reveal">
-                <p>
-                    © <span class="text-gold">2026</span> Al-Fazah Industrial Rentals
-                </p>
+                <p>© <span class="text-gold">2026</span> Al-Fazah Industrial Rentals</p>
                 <div class="flex gap-6">
                     <a href="index.html" class="hover:text-gold transition">Home</a>
-                    <a href="Rental_Agrement.html" class="hover:text-gold transition">Terms</a>
+                    <a href="services.html" class="hover:text-gold transition">Services</a>
+                    <a href="contact.html" class="hover:text-gold transition">Contact</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <a href="https://wa.me/966541894161" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.051l.404-.506c.122-.16.253-.13.408-.072.155.058.982.465 1.15.553.168.086.28.129.32.203.04.074.04.428-.104.833z"/></svg>
+    </a>
     <script src="script.js"></script>
 </body>
 </html>

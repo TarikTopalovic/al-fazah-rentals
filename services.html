@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Al-Fazah Rental Services — Equipment delivery, on-site maintenance, emergency support and long-term rental plans in Medina.">
+    <title>خدماتنا | Al-Fazah Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>tailwind.config = { theme: { extend: { colors: { gold: '#d4af37', 'gold-dark': '#b5952f' } } } }</script>
+</head>
+<body class="ar dark-theme">
+
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled" id="main-nav">
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Logo" class="h-10 md:h-11 group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+                <div>
+                    <span class="font-black text-xl md:text-2xl tracking-tight lang-ar text-gold block leading-tight">الفزعة</span>
+                    <span class="font-black text-xl md:text-2xl tracking-[0.2em] lang-en hidden text-gold uppercase block leading-tight">FAZAH</span>
+                    <span class="text-[10px] text-muted font-bold uppercase tracking-[0.15em] hidden md:block">Industrial Rentals</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link"><span class="lang-ar">الرئيسية</span><span class="lang-en hidden">Home</span></a>
+            <a href="services.html" class="nav-link active"><span class="lang-ar">خدماتنا</span><span class="lang-en hidden">Services</span></a>
+            <a href="about.html" class="nav-link"><span class="lang-ar">من نحن</span><span class="lang-en hidden">About</span></a>
+            <a href="contact.html" class="nav-link"><span class="lang-ar">تواصل معنا</span><span class="lang-en hidden">Contact</span></a>
+        </div>
+        <div class="nav-controls">
+            <button onclick="toggleTheme()" id="theme-icon" class="w-10 h-10 rounded-full border border-[var(--border-strong)] flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300" aria-label="Toggle theme">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            </button>
+            <button onclick="toggleLang()" class="px-4 py-2 border border-[var(--border-strong)] rounded-full text-[11px] font-black text-gold lang-switch-btn hover:bg-gold hover:text-black transition-all duration-300 uppercase tracking-wider">English</button>
+            <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-menu-link" onclick="closeMobileMenu()"><span class="lang-ar">الرئيسية</span><span class="lang-en hidden">Home</span></a>
+        <a href="services.html" class="mobile-menu-link active" onclick="closeMobileMenu()"><span class="lang-ar">خدماتنا</span><span class="lang-en hidden">Services</span></a>
+        <a href="about.html" class="mobile-menu-link" onclick="closeMobileMenu()"><span class="lang-ar">من نحن</span><span class="lang-en hidden">About</span></a>
+        <a href="contact.html" class="mobile-menu-link" onclick="closeMobileMenu()"><span class="lang-ar">تواصل معنا</span><span class="lang-en hidden">Contact</span></a>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header px-6">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000')] bg-cover bg-center opacity-[0.04]"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)] to-transparent"></div>
+        <div class="relative z-10 reveal">
+            <span class="section-label mb-6 inline-flex"><span class="lang-ar">ما نقدمه</span><span class="lang-en hidden">What We Offer</span></span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mt-4 mb-6">
+                <span class="lang-ar text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">خدماتنا المتكاملة</span>
+                <span class="lang-en hidden text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">Our Full Services</span>
+            </h1>
+            <div class="gold-divider"></div>
+            <p class="text-muted font-semibold text-lg mt-6 max-w-2xl mx-auto">
+                <span class="lang-ar">من التأجير إلى التوصيل والصيانة — نقدم حلولاً شاملة لكل احتياجات مشروعك الإنشائي</span>
+                <span class="lang-en hidden">From rental to delivery and maintenance — comprehensive solutions for every construction need</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN SERVICES -->
+    <section class="px-6 py-28 md:py-36 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Service 1 - Equipment Rental -->
+            <div class="service-card group reveal delay-100">
+                <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">🏗️</div>
+                <h3 class="text-2xl font-black mb-4">
+                    <span class="lang-ar">تأجير المعدات الصناعية</span>
+                    <span class="lang-en hidden">Industrial Equipment Rental</span>
+                </h3>
+                <p class="text-muted font-semibold leading-relaxed mb-6">
+                    <span class="lang-ar">مجموعة واسعة من المعدات الاحترافية: دريلات هيلتي، مولدات كهربائية، صواريخ جلخ، مناشير رخام، سلالم ألمنيوم وأكثر. جميع المعدات مُصانة ومفحوصة بعناية فائقة.</span>
+                    <span class="lang-en hidden">A wide range of professional equipment: Hilti drills, generators, angle grinders, marble saws, aluminum ladders and more. All units are meticulously maintained and inspected.</span>
+                </p>
+                <a href="index.html#catalog" class="btn-outline-gold text-sm px-6 py-3">
+                    <span class="lang-ar">تصفح المعدات</span><span class="lang-en hidden">Browse Equipment</span>
+                </a>
+            </div>
+
+            <!-- Service 2 - Express Delivery -->
+            <div class="service-card group reveal delay-200">
+                <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">🚛</div>
+                <h3 class="text-2xl font-black mb-4">
+                    <span class="lang-ar">توصيل سريع للموقع</span>
+                    <span class="lang-en hidden">Express Site Delivery</span>
+                </h3>
+                <p class="text-muted font-semibold leading-relaxed mb-6">
+                    <span class="lang-ar">نوصل المعدات مباشرة إلى موقع العمل في أبيار الماشي والمدينة المنورة والمناطق المجاورة. التوصيل متاح يومياً بأسعار مناسبة وبأسرع وقت ممكن.</span>
+                    <span class="lang-en hidden">Direct delivery to your job site across Abyar Al Mashi, Medina, and surrounding areas. Daily delivery available at competitive rates with the fastest turnaround.</span>
+                </p>
+                <a href="contact.html" class="btn-outline-gold text-sm px-6 py-3">
+                    <span class="lang-ar">اطلب توصيل</span><span class="lang-en hidden">Request Delivery</span>
+                </a>
+            </div>
+
+            <!-- Service 3 - Maintenance -->
+            <div class="service-card group reveal delay-100">
+                <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">🔧</div>
+                <h3 class="text-2xl font-black mb-4">
+                    <span class="lang-ar">صيانة ودعم فني</span>
+                    <span class="lang-en hidden">Maintenance & Tech Support</span>
+                </h3>
+                <p class="text-muted font-semibold leading-relaxed mb-6">
+                    <span class="lang-ar">فريق صيانة متخصص جاهز للتحرك فوراً في حال أي عطل. نقدم خدمة إصلاح في الموقع أو استبدال فوري للمعدة لضمان استمرار مشروعك بدون توقف.</span>
+                    <span class="lang-en hidden">A specialized maintenance team ready to mobilize instantly for any breakdown. We offer on-site repair or immediate unit replacement to keep your project running.</span>
+                </p>
+                <a href="https://wa.me/966541894161" class="btn-outline-gold text-sm px-6 py-3">
+                    <span class="lang-ar">طلب دعم فني</span><span class="lang-en hidden">Request Support</span>
+                </a>
+            </div>
+
+            <!-- Service 4 - Long-term Plans -->
+            <div class="service-card group reveal delay-200">
+                <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">📋</div>
+                <h3 class="text-2xl font-black mb-4">
+                    <span class="lang-ar">عقود تأجير طويلة الأمد</span>
+                    <span class="lang-en hidden">Long-Term Rental Plans</span>
+                </h3>
+                <p class="text-muted font-semibold leading-relaxed mb-6">
+                    <span class="lang-ar">أسعار خاصة ومخفضة للمقاولين وأصحاب المشاريع الكبيرة. عقود مرنة (أسبوعية أو شهرية) مع أولوية في التوصيل والصيانة ودعم فني مخصص على مدار الساعة.</span>
+                    <span class="lang-en hidden">Special discounted rates for contractors and large project owners. Flexible weekly or monthly contracts with priority delivery, maintenance, and dedicated 24/7 support.</span>
+                </p>
+                <a href="Rental_Agrement.html" class="btn-outline-gold text-sm px-6 py-3">
+                    <span class="lang-ar">عرض نموذج العقد</span><span class="lang-en hidden">View Agreement</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-28 md:py-36 bg-[var(--bg-secondary)] relative overflow-hidden border-y border-[var(--border)]">
+        <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-[var(--gold)] opacity-[0.02] rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/3"></div>
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 md:mb-20 reveal">
+                <span class="section-label"><span class="lang-ar">كيف نعمل</span><span class="lang-en hidden">Process</span></span>
+                <h2 class="text-4xl md:text-5xl font-black mt-4 text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">
+                    <span class="lang-ar">كيف تستأجر معداتك؟</span><span class="lang-en hidden">How It Works</span>
+                </h2>
+                <div class="gold-divider mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center reveal delay-100">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-black text-3xl font-black mb-6 shadow-lg">1</div>
+                    <h3 class="text-xl font-black mb-3"><span class="lang-ar">تواصل معنا</span><span class="lang-en hidden">Contact Us</span></h3>
+                    <p class="text-muted font-semibold text-sm leading-relaxed"><span class="lang-ar">أرسل لنا عبر الواتساب أو اتصل بنا مباشرة. حدد المعدة المطلوبة ومدة التأجير وموقع العمل.</span><span class="lang-en hidden">Reach out via WhatsApp or call directly. Specify the equipment, rental period, and site location.</span></p>
+                </div>
+                <div class="text-center reveal delay-200">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-black text-3xl font-black mb-6 shadow-lg">2</div>
+                    <h3 class="text-xl font-black mb-3"><span class="lang-ar">احصل على تسعيرة</span><span class="lang-en hidden">Get a Quote</span></h3>
+                    <p class="text-muted font-semibold text-sm leading-relaxed"><span class="lang-ar">نرسل لك تسعيرة فورية شفافة بدون أي رسوم مخفية. أسعار تنافسية يومية وأسبوعية وشهرية.</span><span class="lang-en hidden">Receive an instant transparent quote with zero hidden fees. Competitive daily, weekly, and monthly rates.</span></p>
+                </div>
+                <div class="text-center reveal delay-300">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-black text-3xl font-black mb-6 shadow-lg">3</div>
+                    <h3 class="text-xl font-black mb-3"><span class="lang-ar">استلم المعدة</span><span class="lang-en hidden">Receive Equipment</span></h3>
+                    <p class="text-muted font-semibold text-sm leading-relaxed"><span class="lang-ar">وقّع العقد البسيط واستلم المعدة من مقرنا أو نوصلها لموقعك مباشرة. جاهزة للعمل فوراً!</span><span class="lang-en hidden">Sign the simple agreement and pick up from our office or get direct site delivery. Ready to work immediately!</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 md:py-28 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/5"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="text-3xl md:text-5xl font-black mb-6"><span class="lang-ar">هل تحتاج خدمة خاصة؟</span><span class="lang-en hidden">Need a Custom Service?</span></h2>
+            <p class="text-muted font-bold text-lg mb-10"><span class="lang-ar">تواصل معنا وسنقدم لك حلاً مخصصاً يناسب مشروعك تماماً.</span><span class="lang-en hidden">Contact us and we'll provide a custom solution tailored to your project.</span></p>
+            <a href="contact.html" class="btn-gold text-base px-12 py-5 shadow-[0_0_40px_rgba(212,175,55,0.3)]">
+                <span class="lang-ar">تواصل معنا</span><span class="lang-en hidden">Get In Touch</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer pt-12 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="footer-bottom pt-0 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest reveal">
+                <p>© <span class="text-gold">2026</span> Al-Fazah Industrial Rentals</p>
+                <div class="flex gap-6">
+                    <a href="index.html" class="hover:text-gold transition">Home</a>
+                    <a href="about.html" class="hover:text-gold transition">About</a>
+                    <a href="contact.html" class="hover:text-gold transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/966541894161" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.051l.404-.506c.122-.16.253-.13.408-.072.155.058.982.465 1.15.553.168.086.28.129.32.203.04.074.04.428-.104.833z"/></svg>
+    </a>
+    <script src="script.js"></script>
+</body>
+</html>
