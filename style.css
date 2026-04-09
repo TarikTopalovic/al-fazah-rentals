@@ -1,15 +1,78 @@
-/* --- TURBO MASTER LOADER STYLE --- */
+/* --- ROOT VARIABLES --- */
+:root {
+    --gold: #d4af37;
+    --gold-dark: #b5952f;
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-theme {
+    --bg-primary: #050505;
+    --bg-secondary: #0a0a0a;
+    --bg-card: #141414;
+    --text-main: #ffffff;
+    --border: #222222;
+    --nav-bg: rgba(5, 5, 5, 0.7);
+    --hero-overlay: rgba(0, 0, 0, 0.85);
+}
+
+body.light-theme {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4f4f5;
+    --bg-card: #ffffff;
+    --text-main: #09090b;
+    --border: #e4e4e7;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --hero-overlay: rgba(255, 255, 255, 0.8);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    transition: background-color var(--transition), color var(--transition);
+    font-family: 'Inter', 'Cairo', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+body.en { font-family: 'Montserrat', sans-serif; }
+
+/* Letter spacing for Arabic and English */
+.ar .location-text { letter-spacing: 0px; word-spacing: 2px; }
+.en .location-text { letter-spacing: 1.5px; }
+
+/* text-gold override for Tailwind */
+.text-gold { color: var(--gold); }
+.bg-gold { background-color: var(--gold); }
+.border-gold { border-color: var(--gold); }
+
+/* --- PREMIUM TURBO LOADER --- */
 #loader-wrapper {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     background: #000;
     display: flex;
-    flex-direction: column; /* Stack spinner and text vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 0.6s ease;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .loader-content { 
@@ -17,47 +80,97 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px; /* Container size */
+    width: 150px;
     height: 150px;
 }
 
-/* The Gold Spinning Border */
 .spinner {
     position: absolute;
-    width: 120px; 
-    height: 120px;
-    border: 4px solid rgba(197, 160, 89, 0.1);
-    border-top: 4px solid #c5a059; /* Brand Gold */
+    width: 130px; 
+    height: 130px;
+    border: 3px solid rgba(212, 175, 55, 0.1);
+    border-top: 3px solid var(--gold);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
-/* The Logo - Center and Pulse */
 .loader-logo { 
-    width: 70px; /* Adjusted size for better look */
-    height: auto;
+    width: 70px; 
     z-index: 10;
-    filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.5));
-    animation: pulse 1.5s ease-in-out infinite; /* Pulsing effect instead of spinning for better readability */
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5));
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
-/* Loader Text */
-.loader-text {
-    margin-top: 20px;
-    color: #c5a059;
-    font-weight: bold;
-    font-family: 'Cairo', sans-serif;
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8)); } }
+#loader-wrapper.fade-out { opacity: 0; visibility: hidden; }
+
+/* --- UI COMPONENTS --- */
+.navbar {
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    height: 80px;
+    position: fixed;
+    width: 100%; top: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    transition: all 0.3s ease;
+}
+.navbar.scrolled {
+    height: 70px;
+    background: var(--bg-primary);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Keyframes */
-@keyframes spin { 
-    0% { transform: rotate(0deg); } 
-    100% { transform: rotate(360deg); } 
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #000;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 900;
+    display: inline-block;
+    transition: 0.4s ease-out;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btn-gold:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+.btn-gold:active {
+    transform: translateY(1px);
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
-}
+.hidden { display: none !important; }
 
-#loader-wrapper.fade-out { opacity: 0; pointer-events: none; }
+/* Reveal Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+/* Tool cards */
+.tool-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+.tool-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.2);
+}
