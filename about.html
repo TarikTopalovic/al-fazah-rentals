@@ -2,10 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Al-Fazah Industrial Equipment Rentals — our story, core values and mission in Abyar Al Mashi, Medina.">
     <title>من نحن | Al-Fazah About Us</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script>
@@ -14,6 +17,7 @@
                 extend: {
                     colors: {
                         gold: '#d4af37',
+                        'gold-dark': '#b5952f',
                     }
                 }
             }
@@ -22,46 +26,68 @@
 </head>
 <body class="ar dark-theme">
 
-    <nav class="navbar scrolled">
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar scrolled" id="main-nav">
         <div class="flex items-center gap-4">
-            <a href="index.html" class="flex items-center gap-3 hover:scale-105 transition-transform duration-300">
-                <img src="logo.png" alt="Logo" class="h-10 md:h-12 drop-shadow-md">
-                <span class="font-black text-2xl tracking-tight lang-ar text-gold">الفزعة</span>
-                <span class="font-black text-2xl tracking-widest lang-en hidden text-gold uppercase">FAZAH</span>
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Logo" class="h-10 md:h-11 group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+                <div>
+                    <span class="font-black text-xl md:text-2xl tracking-tight lang-ar text-gold block leading-tight">الفزعة</span>
+                    <span class="font-black text-xl md:text-2xl tracking-[0.2em] lang-en hidden text-gold uppercase block leading-tight">FAZAH</span>
+                    <span class="text-[10px] text-muted font-bold uppercase tracking-[0.15em] hidden md:block">Industrial Rentals</span>
+                </div>
             </a>
         </div>
-        <div class="hidden md:flex gap-8 font-bold items-center">
-            <a href="index.html" class="hover:text-gold transition">الرئيسية <span class="lang-en hidden absolute -top-10">Home</span></a>
-            <a href="about.html" class="text-gold hover:text-white transition">من نحن <span class="lang-en hidden absolute -top-10">About</span></a>
+        
+        <div class="hidden md:flex gap-8 font-bold items-center text-sm uppercase tracking-wider">
+            <a href="index.html" class="hover:text-gold transition relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-gold after:rounded after:transition-all">
+                <span class="lang-ar">الرئيسية</span>
+                <span class="lang-en hidden">Home</span>
+            </a>
+            <a href="about.html" class="text-gold transition relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-gold after:rounded">
+                <span class="lang-ar">من نحن</span>
+                <span class="lang-en hidden">About</span>
+            </a>
         </div>
+        
         <div class="flex items-center gap-3">
-            <button onclick="toggleTheme()" class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition shadow-[0_0_15px_rgba(212,175,55,0.2)]" id="theme-icon">
-                <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <button onclick="toggleTheme()" id="theme-icon" class="w-10 h-10 rounded-full border border-[var(--border-strong)] flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300" aria-label="Toggle theme">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
             </button>
-            <button onclick="toggleLang()" class="px-5 py-2 border border-gold rounded-full text-xs font-black text-gold lang-switch-btn hover:bg-gold hover:text-black transition shadow-[0_0_15px_rgba(212,175,55,0.2)] uppercase tracking-wider">English</button>
+            <button onclick="toggleLang()" class="px-5 py-2 border border-[var(--border-strong)] rounded-full text-xs font-black text-gold lang-switch-btn hover:bg-gold hover:text-black transition-all duration-300 uppercase tracking-wider" aria-label="Toggle language">English</button>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 bg-[var(--bg-secondary)] border-b border-[var(--border)] text-center px-4 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2000')] bg-cover bg-center opacity-10"></div>
+    <!-- ── HEADER ── -->
+    <section class="pt-32 pb-20 bg-[var(--bg-secondary)] text-center px-6 relative overflow-hidden border-b border-[var(--border)]">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2000')] bg-cover bg-center opacity-[0.04]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)] to-transparent"></div>
         
         <div class="relative z-10 reveal">
-            <h1 class="text-5xl md:text-7xl font-black mb-6 mt-10">
-                <span class="lang-ar text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-500">قصة معدات الفزعة</span>
-                <span class="lang-en hidden text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-500 uppercase tracking-tight">The Al-Fazah Story</span>
+            <span class="section-label mb-6 inline-flex">
+                <span class="lang-ar">من نحن</span>
+                <span class="lang-en hidden">About Us</span>
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mt-4 mb-6">
+                <span class="lang-ar text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">قصة معدات الفزعة</span>
+                <span class="lang-en hidden text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">The Al-Fazah Story</span>
             </h1>
-            <div class="h-1.5 w-32 bg-gold mx-auto rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)]"></div>
+            <div class="gold-divider"></div>
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div class="reveal delay-100">
-            <h2 class="text-4xl font-black mb-8 text-gold drop-shadow-sm">
-                <span class="lang-ar">بدايتنا ورؤيتنا</span>
-                <span class="lang-en hidden tracking-tight">Our Origin & Vision</span>
+    <!-- ── STORY ── -->
+    <section class="max-w-7xl mx-auto px-6 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="reveal-left delay-100">
+            <span class="section-label mb-6">
+                <span class="lang-ar">البداية</span>
+                <span class="lang-en hidden">Origins</span>
+            </span>
+            <h2 class="text-3xl md:text-4xl font-black mb-8">
+                <span class="lang-ar text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">بدايتنا ورؤيتنا</span>
+                <span class="lang-en hidden text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">Our Origin & Vision</span>
             </h2>
-            <div class="space-y-6 text-[var(--text-main)] opacity-80 leading-loose text-lg font-bold">
+            <div class="space-y-5 text-muted leading-loose text-base font-semibold">
                 <p class="lang-ar">
                     تأسست "معدات الفزعة" في قلب المدينة المنورة، انطلاقاً من ملاحظة فجوة كبيرة في سوق الإنشاءات المحلي؛ حيث كان المقاولون وأصحاب المنازل يواجهون صعوبات في العثور على معدات احترافية بصيانة عالية وتوصيل سريع في أبيار الماشي وما حولها.
                 </p>
@@ -69,80 +95,97 @@
                     اخترنا اسم "الفزعة" لأنه يجسد قيمنا الجوهرية: الاستجابة السريعة، والموثوقية، والوقوف بجانب عملائنا في أصعب ظروف العمل. نحن لا نقوم فقط بتأجير الأدوات، بل نشاركك في بناء وتأسيس مشاريعك لتصل إلى أعلى درجات الإتقان.
                 </p>
                 <p class="lang-en hidden">
-                    Al-Fazah Equipment was founded in the heart of Medina, specifically identifying a major gap around Abyar Al Mashi. Contractors and homeowners were struggling to find high-performance, well-maintained tools with reliable and swift delivery.
+                    Al-Fazah Equipment was founded in the heart of Medina after identifying a critical gap in the local construction market. Contractors and homeowners around Abyar Al Mashi struggled to find high-performance, well-maintained tools with reliable delivery.
                 </p>
                 <p class="lang-en hidden">
-                    We chose the name "Al-Fazah" (meaning 'chivalrous assistance' in Arabic) because it perfectly embodies our core values: rapid response, reliability, and standing unconditionally by our clients during their most critical project phases.
+                    We chose the name "Al-Fazah" (meaning 'chivalrous assistance') because it embodies our core values: rapid response, reliability, and standing by our clients during their most critical project phases.
                 </p>
             </div>
         </div>
-        <div class="relative reveal delay-200">
-            <div class="absolute -inset-4 bg-gradient-to-tr from-gold/30 to-transparent rounded-3xl blur-xl"></div>
-            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1000" class="rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative z-10 border border-white/10">
-            <div class="absolute -bottom-10 -right-10 bg-gradient-to-br from-gold to-yellow-600 p-8 rounded-3xl shadow-2xl hidden lg:block z-20 border border-yellow-300/30 transform hover:-translate-y-2 transition duration-500">
-                <span class="text-black font-black text-5xl tabular-nums leading-none">+١٠</span>
-                <p class="text-black/80 font-black mt-2 text-lg leading-tight w-24">
+        <div class="relative reveal-right delay-200">
+            <div class="absolute -inset-6 bg-gradient-to-tr from-gold/20 to-transparent rounded-3xl blur-2xl"></div>
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1000" class="rounded-3xl shadow-[var(--card-shadow)] relative z-10 border border-[var(--border)]" alt="Construction equipment">
+            <div class="absolute -bottom-8 -right-8 bg-gradient-to-br from-gold to-gold-dark p-6 md:p-8 rounded-2xl shadow-2xl hidden lg:block z-20 border border-yellow-300/20 hover:-translate-y-2 transition duration-500">
+                <span class="text-black font-black text-4xl md:text-5xl leading-none block">+١٠</span>
+                <p class="text-black/70 font-black mt-2 text-sm leading-tight">
                     <span class="lang-ar">سنوات خبرة</span>
-                    <span class="lang-en hidden leading-tight">Years<br>Exp</span>
+                    <span class="lang-en hidden">Years Exp.</span>
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="bg-[var(--bg-secondary)] py-32 border-y border-[var(--border)] overflow-hidden">
+    <!-- ── CORE VALUES ── -->
+    <section class="bg-[var(--bg-secondary)] py-28 md:py-36 border-y border-[var(--border)] overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-black mb-20 text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-500 reveal">
-                <span class="lang-ar">قيمنا الجوهرية</span>
-                <span class="lang-en hidden uppercase tracking-widest">Our Core Values</span>
-            </h2>
+            <div class="reveal mb-16 md:mb-20">
+                <span class="section-label">
+                    <span class="lang-ar">القيم</span>
+                    <span class="lang-en hidden">Values</span>
+                </span>
+                <h2 class="text-4xl md:text-5xl font-black mt-4 text-transparent bg-clip-text bg-gradient-to-r from-gold to-[var(--gold-light)]">
+                    <span class="lang-ar">قيمنا الجوهرية</span>
+                    <span class="lang-en hidden">Our Core Values</span>
+                </h2>
+                <div class="gold-divider mt-6"></div>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-[var(--bg-card)] p-12 rounded-3xl shadow-lg border border-[var(--border)] hover:-translate-y-4 hover:border-gold hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] transition-all duration-500 relative group reveal delay-100">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                    <div class="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">🛡️</div>
-                    <h3 class="text-2xl font-black text-[var(--text-main)] mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="faq-item p-10 text-center group reveal delay-100 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">🛡️</div>
+                    <h3 class="text-xl font-black mb-4">
                         <span class="lang-ar">الجودة والأمان</span>
                         <span class="lang-en hidden">Safety & Quality</span>
                     </h3>
-                    <p class="text-[var(--text-main)] opacity-60 font-bold leading-relaxed">
-                        <span class="lang-ar">تخضع كل معدة لدينا لفحص صيانة دقيق بعد كل عملية تأجير لضمان أعلى معايير الأمان والأداء الصارم.</span>
-                        <span class="lang-en hidden">Every piece of equipment undergoes rigorous maintenance checks after every rental to ensure absolute peak safety standards.</span>
+                    <p class="text-muted font-semibold leading-relaxed text-sm">
+                        <span class="lang-ar">تخضع كل معدة لدينا لفحص صيانة دقيق بعد كل عملية تأجير لضمان أعلى معايير الأمان والأداء.</span>
+                        <span class="lang-en hidden">Every piece of equipment undergoes rigorous maintenance checks after every rental to ensure peak safety standards.</span>
                     </p>
                 </div>
                 
-                <div class="bg-[var(--bg-card)] p-12 rounded-3xl shadow-lg border border-[var(--border)] hover:-translate-y-4 hover:border-gold hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] transition-all duration-500 relative group reveal delay-200">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                    <div class="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">🚀</div>
-                    <h3 class="text-2xl font-black text-[var(--text-main)] mb-6">
+                <div class="faq-item p-10 text-center group reveal delay-200 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">⚡</div>
+                    <h3 class="text-xl font-black mb-4">
                         <span class="lang-ar">السرعة (الفزعة)</span>
                         <span class="lang-en hidden">Speed (The Fazah)</span>
                     </h3>
-                    <p class="text-[var(--text-main)] opacity-60 font-bold leading-relaxed">
-                        <span class="lang-ar">ندرك أن الوقت هو المال في عالم الإنشاءات، لذا نلتزم بتوصيل المعدات لموقعك في أسرع وقت وتلبية نداء الطوارئ.</span>
+                    <p class="text-muted font-semibold leading-relaxed text-sm">
+                        <span class="lang-ar">ندرك أن الوقت هو المال في عالم الإنشاءات، لذا نلتزم بتوصيل المعدات لموقعك في أسرع وقت.</span>
                         <span class="lang-en hidden">Time is money in construction. We commit to delivering standard tools to your site as fast as humanly possible.</span>
                     </p>
                 </div>
                 
-                <div class="bg-[var(--bg-card)] p-12 rounded-3xl shadow-lg border border-[var(--border)] hover:-translate-y-4 hover:border-gold hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] transition-all duration-500 relative group reveal delay-300">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                    <div class="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">🤝</div>
-                    <h3 class="text-2xl font-black text-[var(--text-main)] mb-6">
+                <div class="faq-item p-10 text-center group reveal delay-300 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">🤝</div>
+                    <h3 class="text-xl font-black mb-4">
                         <span class="lang-ar">الشراكة الدائمة</span>
                         <span class="lang-en hidden">Lasting Partners</span>
                     </h3>
-                    <p class="text-[var(--text-main)] opacity-60 font-bold leading-relaxed">
-                        <span class="lang-ar">نسعى لبناء علاقات طويلة الأمد مع عملائنا عبر تقديم أسعار عادلة ودعم فني متواصل وموثوق.</span>
-                        <span class="lang-en hidden">We strive to build long-lasting relationships with our clients through fair pricing, transparent deals, and solid support.</span>
+                    <p class="text-muted font-semibold leading-relaxed text-sm">
+                        <span class="lang-ar">نسعى لبناء علاقات طويلة الأمد مع عملائنا عبر تقديم أسعار عادلة ودعم فني متواصل.</span>
+                        <span class="lang-en hidden">Building long-lasting client relationships through fair pricing, transparent deals, and continuous support.</span>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#050505] border-t border-gold/20 pt-10 pb-10 px-6 text-center text-gray-400">
-        <p class="text-xs font-black tracking-widest opacity-60">
-            © <span class="text-gold">2026</span> Al-Fazah Industrial Rentals - All Rights Reserved
-        </p>
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer pt-10 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="footer-bottom pt-0 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest reveal">
+                <p>
+                    © <span class="text-gold">2026</span> Al-Fazah Industrial Rentals
+                </p>
+                <div class="flex gap-6">
+                    <a href="index.html" class="hover:text-gold transition">Home</a>
+                    <a href="Rental_Agrement.html" class="hover:text-gold transition">Terms</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
